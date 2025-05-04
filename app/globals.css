@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --primary: #ff00ff;
+  --primary-gradient: linear-gradient(135deg, #ff00ff, #ff3399);
+  --secondary: #333333;
+  --accent: #ff3399;
+  --text-gradient: linear-gradient(to right, #ff00ff, #ff66cc);
+  --card-bg: rgba(30, 30, 30, 0.8);
+  --border-glow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.text-gradient {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-effect {
+  box-shadow: var(--border-glow);
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--border-glow);
+}
+
+.gradient-bg {
+  background: var(--primary-gradient);
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--border-glow);
+  transform: translateY(-2px);
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(10, 10, 10, 0.7);
+  border-bottom: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: var(--primary-gradient);
+}
